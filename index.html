@@ -4,23 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>XELVARON - Home</title>
-    
-    <!-- Logo di tab browser -->
     <link rel="icon" href="logo-xelvaron.png" type="image/png">
 
     <style>
-        /* Pengaturan Dasar */
+        /* =========================================
+           1. PENGATURAN DASAR & WARNA
+           ========================================= */
         body { 
             font-family: 'Georgia', serif; 
             margin: 0; 
             padding: 0;
             color: #E0E0E0; 
-            background-color: #3D3D3D; 
+            background-color: #3D3D3D; /* Warna dasar abu-abu gelap */
             line-height: 1.6;
-            scroll-behavior: smooth; /* Efek scroll halus */
+            overflow-x: hidden;
         }
 
-        /* --- BAGIAN ATAS: NAVIGASI --- */
+        /* =========================================
+           2. NAVIGASI ATAS (NAVBAR)
+           ========================================= */
         .navbar {
             display: flex;
             justify-content: space-between; 
@@ -28,10 +30,10 @@
             padding: 15px 40px;
             background-color: #2A2A2A; 
             border-bottom: 2px solid #8D6E63; 
-            position: fixed; /* Menu menempel di atas */
+            position: fixed; 
             top: 0;
             width: 100%;
-            box-sizing: border-box; /* Agar padding tidak melebihi lebar layar */
+            box-sizing: border-box;
             z-index: 1000;
         }
 
@@ -61,7 +63,7 @@
         .nav-links a {
             color: #E0E0E0;
             text-decoration: none;
-            margin-left: 20px;
+            margin-left: 25px;
             font-weight: bold;
             font-family: sans-serif; 
             font-size: 0.95em;
@@ -72,14 +74,15 @@
             color: #B0BEC5; 
         }
 
-        /* --- BAGIAN TENGAH: BACKGROUND FOTO & JUDUL --- */
+        /* =========================================
+           3. HERO SECTION (FOTO BACKGROUND UTAMA)
+           ========================================= */
         .hero-section {
-            /* Memanggil foto background. Pastikan file bernama foto-kelas.JPG */
-            background-image: linear-gradient(rgba(42, 42, 42, 0.6), rgba(42, 42, 42, 0.8)), url('foto-kelas.JPG');
+            background-image: linear-gradient(rgba(42, 42, 42, 0.6), rgba(42, 42, 42, 0.8)), url('foto-kelas.jpg');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
-            height: 100vh; /* Memenuhi satu layar penuh */
+            height: 75vh; 
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -87,14 +90,15 @@
             text-align: center;
             padding: 0 20px;
             border-bottom: 4px solid #8D6E63;
+            margin-top: 75px; 
         }
 
         h1 { 
             color: #FFFFFF; 
             font-size: 4em;
             margin-bottom: 10px;
-            text-shadow: 2px 2px 8px rgba(0,0,0,0.8);
-            font-family: 'Georgia', serif;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.9);
+            letter-spacing: 2px;
         }
 
         .tagline {
@@ -102,62 +106,136 @@
             font-style: italic;
             font-size: 1.3em;
             margin-bottom: 0;
-            text-shadow: 1px 1px 5px rgba(0,0,0,0.8);
+            text-shadow: 1px 1px 5px rgba(0,0,0,0.9);
         }
 
-        /* --- BAGIAN BAWAH: KONTEN & MENU --- */
+        /* =========================================
+           4. KONTEN BAWAH (GRID KACA)
+           ========================================= */
         .content-container {
-            max-width: 800px;
+            max-width: 1100px; 
             margin: 60px auto;
             padding: 0 20px;
-            text-align: left;
         }
 
-        p {
-            font-size: 1.1em;
-            margin-bottom: 20px;
-            color: #E0E0E0;
-        }
-
-        .menu-grid {
+        /* Grid 3 Kolom */
+        .sites-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            margin-top: 40px;
-        }
-        
-        .card {
-            background-color: #4A4A4A;
-            padding: 25px 20px;
-            border-radius: 8px;
-            text-decoration: none;
-            color: #FFFFFF;
-            text-align: center;
-            font-weight: bold;
-            font-family: sans-serif;
-            border: 1px solid #757575;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
-        
-        .card:hover {
-            background-color: #8D6E63; 
-            transform: translateY(-5px);
-            border-color: #B0BEC5;
-            box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+            grid-template-columns: repeat(3, 1fr); 
+            gap: 30px;
+            margin-bottom: 40px;
         }
 
-        /* --- TOMBOL INSTAGRAM ELEGAN --- */
+        /* Grid 1 Kolom (Achievements) */
+        .achievement-grid {
+            display: grid;
+            grid-template-columns: 1fr; 
+            max-width: 450px; 
+            margin: 0 auto 50px auto; 
+        }
+
+        /* Desain Kotak Kaca (Glassmorphism) */
+        .card-box {
+            background-color: rgba(255, 255, 255, 0.05); 
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 30px 25px;
+            text-align: center;
+            transition: all 0.4s ease;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            height: 100%; 
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Efek saat kotak di-hover */
+        .card-box:hover {
+            background-color: rgba(141, 110, 99, 0.2); 
+            border-color: rgba(176, 190, 197, 0.5);
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.5);
+        }
+
+        .card-box h3 {
+            font-size: 1.5em;
+            color: #FFFFFF;
+            margin-top: 0;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #8D6E63;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        .card-box p {
+            font-size: 0.95em;
+            color: #B0BEC5;
+            margin-bottom: 25px;
+            flex-grow: 1; 
+        }
+
+        /* Desain Gambar di dalam kotak */
+        .img-container {
+            width: 100%;
+            height: 200px;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 25px;
+            border: 1px solid #555;
+        }
+        
+        .img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; 
+            transition: transform 0.4s ease;
+        }
+
+        .card-box:hover .img-container img {
+            transform: scale(1.1); 
+        }
+
+        /* Tombol Read More */
+        .btn-small {
+            display: inline-block;
+            background-color: transparent;
+            color: #B0BEC5;
+            padding: 8px 25px;
+            text-decoration: none;
+            border-radius: 20px;
+            border: 1px solid #8D6E63;
+            font-family: sans-serif;
+            font-weight: bold;
+            font-size: 0.9em;
+            transition: all 0.3s;
+        }
+
+        .btn-small:hover {
+            background-color: #8D6E63;
+            color: #FFFFFF;
+        }
+
+        /* =========================================
+           5. TOMBOL INSTAGRAM
+           ========================================= */
+        .ig-container {
+            text-align: center;
+            margin-top: 60px;
+            padding-top: 40px;
+            border-top: 1px solid #555;
+        }
+
         .ig-button {
             display: inline-block;
-            background-color: #B0BEC5; /* Silver */
-            color: #4A3525; /* Coklat Tua */
-            padding: 14px 30px;
+            background-color: #B0BEC5; 
+            color: #4A3525; 
+            padding: 15px 40px;
             border-radius: 30px; 
             text-decoration: none;
             font-weight: bold;
             font-family: sans-serif;
-            margin-top: 20px;
+            font-size: 1.1em;
             border: 2px solid #8D6E63; 
             transition: all 0.3s ease;
             box-shadow: 0 4px 6px rgba(0,0,0,0.2);
@@ -166,24 +244,59 @@
         .ig-button:hover {
             background-color: #8D6E63; 
             color: #FFFFFF; 
-            transform: translateY(-3px); 
-            box-shadow: 0 6px 12px rgba(141, 110, 99, 0.4);
+            transform: scale(1.05); 
         }
         
+        /* =========================================
+           6. FOOTER
+           ========================================= */
         .footer {
             text-align: center; 
-            margin-top: 60px; 
-            padding-bottom: 40px;
+            margin-top: 80px; 
+            padding: 30px 20px;
+            background-color: #2A2A2A;
+            font-size: 0.9em;
+            color: #888;
+        }
+
+        /* =========================================
+           7. RESPONSIF (UNTUK HP/TABLET)
+           ========================================= */
+        @media (max-width: 900px) {
+            .sites-grid { 
+                grid-template-columns: 1fr; /* Ubah jadi 1 kolom ke bawah */
+            } 
+            h1 { 
+                font-size: 2.5em; 
+            }
+            .navbar { 
+                flex-direction: column; 
+                padding: 15px; 
+            }
+            .nav-links { 
+                margin-top: 15px; 
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 10px;
+            }
+            .nav-links a {
+                margin-left: 0;
+                margin: 0 10px;
+            }
+            .hero-section { 
+                margin-top: 130px; 
+                height: 60vh;
+            }
         }
     </style>
 </head>
 <body>
 
-    <!-- HEADER / NAVIGASI -->
-     <!-- NAVIGASI -->
+    <!-- BAGIAN 1: NAVIGASI -->
     <div class="navbar">
         <a href="index.html" class="brand">
-            <img src="logo-xelvaron.png" alt="Logo" class="logo-small">
+            <img src="logo-xelvaron.png" alt="Logo Xelvaron" class="logo-small">
             <span class="brand-name">xelvaron</span>
         </a>
         <div class="nav-links">
@@ -194,78 +307,72 @@
         </div>
     </div>
 
-    <!-- FOTO & JUDUL -->
+    <!-- BAGIAN 2: FOTO BACKGROUND & JUDUL -->
     <div class="hero-section">
         <h1>Welcome to xelvasite o:</h1>
         <p class="tagline">"The last but never the least, the beginning of greatness."</p>
     </div>
 
-    <!-- KONTEN 3 KOLOM UTAMA -->
+    <!-- BAGIAN 3: KONTEN UTAMA -->
     <div class="content-container">
         
+        <!-- Grid 3 Kolom -->
         <div class="sites-grid">
+            
             <!-- Kolom 1: Meet Our Class -->
-            <div class="sites-column">
+            <div class="card-box">
                 <h3>Meet our class 🏷️</h3>
                 <p>A glimpse into our class, our memories, and the journey we share together. ✨</p>
                 <div class="img-container">
-                    <!-- PASTIKAN NAMA FILE FOTO DI BAWAH INI BENAR -->
                     <img src="foto-meet.jpg" alt="Meet Our Class">
                 </div>
                 <a href="about.html" class="btn-small">Read More</a>
             </div>
 
             <!-- Kolom 2: The Students -->
-            <div class="sites-column">
+            <div class="card-box">
                 <h3>The students 📝</h3>
                 <p>Meet the students who bring energy, creativity, and unforgettable memories to our class every day. 🎀</p>
                 <div class="img-container">
-                    <!-- PASTIKAN NAMA FILE FOTO DI BAWAH INI BENAR -->
                     <img src="foto-siswa.jpg" alt="The Students">
                 </div>
                 <a href="members.html" class="btn-small">Read More</a>
             </div>
 
             <!-- Kolom 3: Dumpie -->
-            <div class="sites-column">
+            <div class="card-box">
                 <h3>dumpie 📸</h3>
                 <p>A random collection of fun, candid, and unforgettable moments shared by our class. 💥</p>
                 <div class="img-container">
-                    <!-- PASTIKAN NAMA FILE FOTO DI BAWAH INI BENAR -->
                     <img src="foto-dump.jpg" alt="Dumpie">
                 </div>
                 <a href="photodump.html" class="btn-small">Read More</a>
             </div>
         </div>
 
-        <!-- KONTEN ACHIEVEMENTS (Di Bawahnya, Posisi Tengah) -->
+        <!-- Grid 1 Kolom (Achievements) -->
         <div class="achievement-grid">
-            <div class="sites-column">
+            <div class="card-box">
                 <h3>Achievements 🏆</h3>
                 <p>Proud moments and milestones we have reached together as a class.</p>
                 <div class="img-container">
-                    <!-- PASTIKAN NAMA FILE FOTO DI BAWAH INI BENAR -->
                     <img src="foto-prestasi.jpg" alt="Achievements">
                 </div>
                 <a href="achievements.html" class="btn-small">Read More</a>
             </div>
         </div>
 
-        <!-- Tombol Instagram -->
+        <!-- BAGIAN 4: TOMBOL INSTAGRAM -->
         <div class="ig-container">
             <a href="https://www.instagram.com/xelvaron_/" target="_blank" class="ig-button">
-                 Follow @xelvaron_ on Instagram
+                📷 Follow @xelvaron_ on Instagram
             </a>
         </div>
     </div>
 
-    <!-- Footer -->
+    <!-- BAGIAN 5: FOOTER -->
     <div class="footer">
-        &copy; 2025 XELVARON. Made with ❤️ by the class.
-    </div>
-
-</body>
-</html>
+        &copy; 2024 XELVARON. Made with ❤️ by the class.
     </div>
 
 </body>
