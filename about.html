@@ -15,9 +15,10 @@
             color: #E0E0E0; 
             background-color: #3D3D3D; 
             line-height: 1.6;
+            overflow-x: hidden;
         }
 
-        /* Navigasi */
+        /* --- NAVIGASI --- */
         .navbar {
             display: flex;
             justify-content: space-between; 
@@ -38,14 +39,23 @@
             text-decoration: none;
         }
 
-        /* Memaksa ukuran logo agar kecil */
+        /* Memaksa ukuran logo agar kecil dan bulat */
         .brand img {
-            color: #FFFFFF; /* Warna teks putih */
-            font-family: 'Georgia', serif; /* Font elegan */
-            font-size: 1.6em; /* Ukuran teks */
+            height: 50px !important; 
+            width: auto !important; 
+            max-width: 250px;
+            border-radius: 50%;
+            background-color: white;
+            padding: 3px;
+        }
+
+        /* Teks Xelvasite di samping logo */
+        .brand-text {
+            color: #FFFFFF;
+            font-size: 1.6em;
             font-weight: bold;
-            letter-spacing: 1px; /* Jarak antar huruf */
-            margin-left: 12px; /* Jarak antara logo dan teks */
+            letter-spacing: 1px;
+            margin-left: 12px;
         }
 
         .nav-links a {
@@ -119,7 +129,8 @@
 
         /* --- COUNTDOWN TIMER --- */
         .timer-container {
-            background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('we-being.JPG');
+            /* Pastikan file we-being.jpg ada di GitHub Anda */
+            background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('we-being.jpg');
             background-size: cover;
             background-position: center;
             border-radius: 15px;
@@ -355,7 +366,6 @@
         <!-- WALI KELAS -->
         <div class="flex-row reverse">
             <div class="flex-img">
-                <!-- FOTO PAK AMIR (Saya ubah jadi .jpg agar sesuai standar) -->
                 <img src="foto-pak-amir.jpg" alt="Pak Amir Hamzah">
             </div>
             <div class="flex-text">
@@ -394,7 +404,6 @@
 
     <!-- SCRIPT UNTUK TIMER OTOMATIS -->
     <script>
-        // Format: YYYY, MM (0-11), DD (Bulan ke-6 = Juli)
         const startDate = new Date(2025, 6, 12).getTime(); 
 
         const timerElement = document.getElementById('countup');
