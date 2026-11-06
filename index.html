@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>XELVARON - Home</title>
-    <!-- Favicon menggunakan logo lama (karena biasanya kecil) -->
     <link rel="icon" href="logo-xelvaron.png" type="image/png">
 
     <style>
@@ -18,7 +17,7 @@
             overflow-x: hidden;
         }
 
-        /* --- NAVIGASI --- */
+        /* --- NAVIGASI (Memperbaiki Logo) --- */
         .navbar {
             display: flex;
             justify-content: space-between; 
@@ -39,8 +38,9 @@
             text-decoration: none;
         }
 
+        /* Ukuran logo disesuaikan */
         .logo-panjang {
-            height: 55px; 
+            height: 50px; 
             width: auto; 
             object-fit: contain;
             transition: transform 0.3s ease;
@@ -66,7 +66,7 @@
 
         /* --- BACKGROUND FOTO KELAS --- */
         .hero-section {
-            /* Memanggil foto-kelas.JPG (huruf besar sesuai gambar Anda) */
+            /* Memanggil foto-kelas.JPG (huruf besar sesuai file Anda) */
             background-image: linear-gradient(rgba(42, 42, 42, 0.6), rgba(42, 42, 42, 0.8)), url('foto-kelas.JPG');
             background-size: cover;
             background-position: center;
@@ -79,7 +79,7 @@
             text-align: center;
             padding: 0 20px;
             border-bottom: 4px solid #8D6E63;
-            margin-top: 85px; 
+            margin-top: 80px; 
         }
 
         h1 { 
@@ -252,14 +252,15 @@
     <!-- NAVIGASI -->
     <div class="navbar">
         <a href="index.html" class="brand">
-            <!-- Jika logo panjang belum di-upload, ganti teks di bawah jadi logo-xelvaron.png -->
-            <img src="logo-xelvaron.png" alt="Logo Xelvaron" class="logo-xelvaron">
+            <!-- Menggunakan logo-xelvaron.png yang pasti ada di GitHub Anda -->
+            <!-- (Jika Anda sudah upload logo-panjang.png, ganti tulisan di bawah menjadi logo-panjang.png) -->
+            <img src="logo-xelvaron.png" alt="Logo Xelvaron" class="logo-panjang" style="border-radius: 50%; background: white;">
         </a>
         <div class="nav-links">
             <a href="index.html">Home</a>
             <a href="about.html">Meet Our Class</a>
             <a href="members.html">The Student's</a>
-            <a href="photodump.html">Dumpie</a>
+            <a href="photodump.html">dumpie</a>
             <a href="achievements.html">Achievements</a>
         </div>
     </div>
@@ -300,7 +301,7 @@
                 <h3>dumpie 📸</h3>
                 <p>A random collection of fun, candid, and unforgettable moments shared by our class. 💥</p>
                 <div class="img-container">
-                    <!-- Nama file dobel .jpg.jpeg sesuai gambar Anda -->
+                    <!-- Nama file dobel .jpg.jpeg sesuai gambar GitHub Anda -->
                     <img src="foto-dump.jpg.jpeg" alt="Dumpie">
                 </div>
                 <a href="photodump.html" class="btn-small">Read More</a>
@@ -313,7 +314,7 @@
                 <h3>Achievements 🏆</h3>
                 <p>Proud moments and milestones we have reached together as a class.</p>
                 <div class="img-container">
-                    <!-- Nama file dobel .jpg.jpeg sesuai gambar Anda -->
+                    <!-- Nama file dobel .jpg.jpeg sesuai gambar GitHub Anda -->
                     <img src="foto-prestasi.jpg.jpeg" alt="Achievements">
                 </div>
                 <a href="achievements.html" class="btn-small">Read More</a>
