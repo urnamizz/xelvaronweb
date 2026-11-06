@@ -4,30 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>XELVARON - Home</title>
+    <!-- Favicon menggunakan logo lama (karena biasanya kecil) -->
     <link rel="icon" href="logo-xelvaron.png" type="image/png">
 
     <style>
-        /* =========================================
-           1. PENGATURAN DASAR & WARNA
-           ========================================= */
         body { 
             font-family: 'Georgia', serif; 
             margin: 0; 
             padding: 0;
             color: #E0E0E0; 
-            background-color: #3D3D3D; /* Warna dasar abu-abu gelap */
+            background-color: #3D3D3D; 
             line-height: 1.6;
             overflow-x: hidden;
         }
 
-        /* =========================================
-           2. NAVIGASI ATAS (NAVBAR)
-           ========================================= */
+        /* --- NAVIGASI --- */
         .navbar {
             display: flex;
             justify-content: space-between; 
             align-items: center;
-            padding: 15px 40px;
+            padding: 10px 40px;
             background-color: #2A2A2A; 
             border-bottom: 2px solid #8D6E63; 
             position: fixed; 
@@ -40,24 +36,18 @@
         .brand {
             display: flex;
             align-items: center;
-            gap: 15px; 
             text-decoration: none;
         }
 
-        .logo-small {
-            width: 45px; 
-            height: 45px;
-            border-radius: 50%; 
-            object-fit: cover;
-            border: 2px solid #B0BEC5; 
-            background-color: white;
+        .logo-panjang {
+            height: 55px; 
+            width: auto; 
+            object-fit: contain;
+            transition: transform 0.3s ease;
         }
 
-        .brand-name {
-            font-size: 1.8em;
-            font-weight: bold;
-            color: #FFFFFF; 
-            letter-spacing: 1px;
+        .logo-panjang:hover {
+            transform: scale(1.03); 
         }
 
         .nav-links a {
@@ -74,10 +64,9 @@
             color: #B0BEC5; 
         }
 
-        /* =========================================
-           3. HERO SECTION (FOTO BACKGROUND UTAMA)
-           ========================================= */
+        /* --- BACKGROUND FOTO KELAS --- */
         .hero-section {
+            /* Memanggil foto-kelas.JPG (huruf besar sesuai gambar Anda) */
             background-image: linear-gradient(rgba(42, 42, 42, 0.6), rgba(42, 42, 42, 0.8)), url('foto-kelas.JPG');
             background-size: cover;
             background-position: center;
@@ -90,7 +79,7 @@
             text-align: center;
             padding: 0 20px;
             border-bottom: 4px solid #8D6E63;
-            margin-top: 75px; 
+            margin-top: 85px; 
         }
 
         h1 { 
@@ -109,16 +98,13 @@
             text-shadow: 1px 1px 5px rgba(0,0,0,0.9);
         }
 
-        /* =========================================
-           4. KONTEN BAWAH (GRID KACA)
-           ========================================= */
+        /* --- KONTEN BAWAH --- */
         .content-container {
             max-width: 1100px; 
             margin: 60px auto;
             padding: 0 20px;
         }
 
-        /* Grid 3 Kolom */
         .sites-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr); 
@@ -126,7 +112,6 @@
             margin-bottom: 40px;
         }
 
-        /* Grid 1 Kolom (Achievements) */
         .achievement-grid {
             display: grid;
             grid-template-columns: 1fr; 
@@ -134,7 +119,6 @@
             margin: 0 auto 50px auto; 
         }
 
-        /* Desain Kotak Kaca (Glassmorphism) */
         .card-box {
             background-color: rgba(255, 255, 255, 0.05); 
             border: 1px solid rgba(255, 255, 255, 0.1);
@@ -150,7 +134,6 @@
             align-items: center;
         }
 
-        /* Efek saat kotak di-hover */
         .card-box:hover {
             background-color: rgba(141, 110, 99, 0.2); 
             border-color: rgba(176, 190, 197, 0.5);
@@ -175,7 +158,6 @@
             flex-grow: 1; 
         }
 
-        /* Desain Gambar di dalam kotak */
         .img-container {
             width: 100%;
             height: 200px;
@@ -196,7 +178,6 @@
             transform: scale(1.1); 
         }
 
-        /* Tombol Read More */
         .btn-small {
             display: inline-block;
             background-color: transparent;
@@ -216,9 +197,7 @@
             color: #FFFFFF;
         }
 
-        /* =========================================
-           5. TOMBOL INSTAGRAM
-           ========================================= */
+        /* --- TOMBOL INSTAGRAM --- */
         .ig-container {
             text-align: center;
             margin-top: 60px;
@@ -247,9 +226,7 @@
             transform: scale(1.05); 
         }
         
-        /* =========================================
-           6. FOOTER
-           ========================================= */
+        /* --- FOOTER --- */
         .footer {
             text-align: center; 
             margin-top: 80px; 
@@ -259,43 +236,23 @@
             color: #888;
         }
 
-        /* =========================================
-           7. RESPONSIF (UNTUK HP/TABLET)
-           ========================================= */
         @media (max-width: 900px) {
-            .sites-grid { 
-                grid-template-columns: 1fr; /* Ubah jadi 1 kolom ke bawah */
-            } 
-            h1 { 
-                font-size: 2.5em; 
-            }
-            .navbar { 
-                flex-direction: column; 
-                padding: 15px; 
-            }
-            .nav-links { 
-                margin-top: 15px; 
-                display: flex;
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: 10px;
-            }
-            .nav-links a {
-                margin-left: 0;
-                margin: 0 10px;
-            }
-            .hero-section { 
-                margin-top: 130px; 
-                height: 60vh;
-            }
+            .sites-grid { grid-template-columns: 1fr; } 
+            h1 { font-size: 2.5em; }
+            .navbar { flex-direction: column; padding: 15px; }
+            .logo-panjang { height: 45px; }
+            .nav-links { margin-top: 15px; display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+            .nav-links a { margin-left: 0; margin: 0 10px; }
+            .hero-section { margin-top: 130px; height: 60vh; }
         }
     </style>
 </head>
 <body>
 
-    <!-- BAGIAN 1: NAVIGASI -->
+    <!-- NAVIGASI -->
     <div class="navbar">
         <a href="index.html" class="brand">
+            <!-- Jika logo panjang belum di-upload, ganti teks di bawah jadi logo-xelvaron.png -->
             <img src="logo-panjang.png" alt="Logo Xelvaron" class="logo-panjang">
         </a>
         <div class="nav-links">
@@ -307,16 +264,15 @@
         </div>
     </div>
 
-    <!-- BAGIAN 2: FOTO BACKGROUND & JUDUL -->
+    <!-- BACKGROUND FOTO -->
     <div class="hero-section">
         <h1>Welcome to xelvasite o:</h1>
         <p class="tagline">"The last but never the least, the beginning of greatness."</p>
     </div>
 
-    <!-- BAGIAN 3: KONTEN UTAMA -->
+    <!-- KONTEN UTAMA -->
     <div class="content-container">
         
-        <!-- Grid 3 Kolom -->
         <div class="sites-grid">
             
             <!-- Kolom 1: Meet Our Class -->
@@ -344,25 +300,27 @@
                 <h3>dumpie 📸</h3>
                 <p>A random collection of fun, candid, and unforgettable moments shared by our class. 💥</p>
                 <div class="img-container">
+                    <!-- Nama file dobel .jpg.jpeg sesuai gambar Anda -->
                     <img src="foto-dump.jpg.jpeg" alt="Dumpie">
                 </div>
                 <a href="photodump.html" class="btn-small">Read More</a>
             </div>
         </div>
 
-        <!-- Grid 1 Kolom (Achievements) -->
+        <!-- Achievements -->
         <div class="achievement-grid">
             <div class="card-box">
                 <h3>Achievements 🏆</h3>
                 <p>Proud moments and milestones we have reached together as a class.</p>
                 <div class="img-container">
+                    <!-- Nama file dobel .jpg.jpeg sesuai gambar Anda -->
                     <img src="foto-prestasi.jpg.jpeg" alt="Achievements">
                 </div>
                 <a href="achievements.html" class="btn-small">Read More</a>
             </div>
         </div>
 
-        <!-- BAGIAN 4: TOMBOL INSTAGRAM -->
+        <!-- Instagram -->
         <div class="ig-container">
             <a href="https://www.instagram.com/xelvaron_/" target="_blank" class="ig-button">
                 📷 Follow @xelvaron_ on Instagram
@@ -370,7 +328,7 @@
         </div>
     </div>
 
-    <!-- BAGIAN 5: FOOTER -->
+    <!-- Footer -->
     <div class="footer">
         &copy; 2025-2028 XELVARON. Made with ❤️ by the class.
     </div>
