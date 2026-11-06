@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>XELVARON - Home</title>
     
-    <link rel="icon" href="logo-kelas.png" type="image/png">
+    <!-- Logo di tab browser -->
+    <link rel="icon" href="logo-xelvaron.png" type="image/png">
 
     <style>
         /* Pengaturan Dasar */
@@ -16,19 +17,22 @@
             color: #E0E0E0; 
             background-color: #3D3D3D; 
             line-height: 1.6;
+            scroll-behavior: smooth; /* Efek scroll halus */
         }
 
-        /* --- BAGIAN NAVIGASI ATAS (Header) --- */
+        /* --- BAGIAN ATAS: NAVIGASI --- */
         .navbar {
             display: flex;
             justify-content: space-between; 
             align-items: center;
             padding: 15px 40px;
             background-color: #2A2A2A; 
-            border-bottom: 2px solid #8D6E63; /* Garis coklat */
-            position: sticky; 
+            border-bottom: 2px solid #8D6E63; 
+            position: fixed; /* Menu menempel di atas */
             top: 0;
-            z-index: 100;
+            width: 100%;
+            box-sizing: border-box; /* Agar padding tidak melebihi lebar layar */
+            z-index: 1000;
         }
 
         .brand {
@@ -43,7 +47,8 @@
             height: 45px;
             border-radius: 50%; 
             object-fit: cover;
-            border: 2px solid #B0BEC5; /* Bingkai silver */
+            border: 2px solid #B0BEC5; 
+            background-color: white;
         }
 
         .brand-name {
@@ -67,38 +72,43 @@
             color: #B0BEC5; 
         }
 
-        /* --- BAGIAN KONTEN UTAMA DENGAN BACKGROUND FOTO --- */
+        /* --- BAGIAN TENGAH: BACKGROUND FOTO & JUDUL --- */
         .hero-section {
-            /* Memanggil gambar background. Pastikan file bernama foto-kelas.jpg */
-            background-image: linear-gradient(rgba(42, 42, 42, 0.8), rgba(61, 61, 61, 0.9)), url('foto-kelas.jpg');
+            /* Memanggil foto background. Pastikan file bernama foto-kelas.jpg */
+            background-image: linear-gradient(rgba(42, 42, 42, 0.6), rgba(42, 42, 42, 0.8)), url('foto-kelas.jpg');
             background-size: cover;
             background-position: center;
-            background-attachment: fixed; 
-            padding: 100px 20px;
+            background-repeat: no-repeat;
+            height: 100vh; /* Memenuhi satu layar penuh */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             text-align: center;
+            padding: 0 20px;
             border-bottom: 4px solid #8D6E63;
         }
 
         h1 { 
             color: #FFFFFF; 
-            font-size: 3.5em;
+            font-size: 4em;
             margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.8);
             font-family: 'Georgia', serif;
         }
 
         .tagline {
             color: #B0BEC5; 
             font-style: italic;
-            font-size: 1.2em;
+            font-size: 1.3em;
             margin-bottom: 0;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+            text-shadow: 1px 1px 5px rgba(0,0,0,0.8);
         }
 
-        /* --- KOTAK TEKS & MENU DI BAWAH FOTO --- */
+        /* --- BAGIAN BAWAH: KONTEN & MENU --- */
         .content-container {
             max-width: 800px;
-            margin: 40px auto;
+            margin: 60px auto;
             padding: 0 20px;
             text-align: left;
         }
@@ -118,26 +128,30 @@
         
         .card {
             background-color: #4A4A4A;
-            padding: 20px;
+            padding: 25px 20px;
             border-radius: 8px;
             text-decoration: none;
             color: #FFFFFF;
             text-align: center;
             font-weight: bold;
+            font-family: sans-serif;
             border: 1px solid #757575;
             transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
         
         .card:hover {
             background-color: #8D6E63; 
-            transform: translateY(-3px);
+            transform: translateY(-5px);
+            border-color: #B0BEC5;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.3);
         }
 
-        /* --- DESAIN TOMBOL INSTAGRAM --- */
+        /* --- TOMBOL INSTAGRAM ELEGAN --- */
         .ig-button {
             display: inline-block;
-            background-color: #B0BEC5; 
-            color: #4A3525; 
+            background-color: #B0BEC5; /* Silver */
+            color: #4A3525; /* Coklat Tua */
             padding: 14px 30px;
             border-radius: 30px; 
             text-decoration: none;
@@ -165,10 +179,10 @@
 </head>
 <body>
 
-    <!-- BAGIAN ATAS: NAVIGASI -->
+    <!-- HEADER / NAVIGASI -->
     <div class="navbar">
         <a href="index.html" class="brand">
-            <img src="logo-xelvaron.png" alt="Logo" class="logo-small">
+            <img src="logo-xelvaron.png" alt="Logo Xelvaron" class="logo-small">
             <span class="brand-name">xelvaron</span>
         </a>
         
@@ -180,13 +194,13 @@
         </div>
     </div>
 
-    <!-- BAGIAN TENGAH: FOTO BACKGROUND & JUDUL -->
+    <!-- HERO SECTION (BACKGROUND FOTO) -->
     <div class="hero-section">
         <h1>Welcome to xelvasite o:</h1>
         <p class="tagline">"The last but never the least, the beginning of greatness."</p>
     </div>
 
-    <!-- BAGIAN KONTEN DI BAWAH FOTO -->
+    <!-- KONTEN TEKS & MENU -->
     <div class="content-container">
         <p>hello welcome to xelva web :p 👋</p>
         <p>This website was created to capture and share our memories, experiences, and journey together as a class. Here, you can find fun moments, class activities, galleries, and many little stories that make our class special.</p>
@@ -200,17 +214,12 @@
             <a href="about.html" class="card"> About The Class</a>
         </div>
 
+        <!-- TOMBOL INSTAGRAM -->
         <div class="footer">
-            <!-- LINK INSTAGRAM KELAS XELVARON SUDAH DIMASUKKAN -->
             <a href="https://www.instagram.com/xelvaron_/" target="_blank" class="ig-button">
                  Follow @xelvaron_ on Instagram
             </a>
         </div>
-    </div>
-
-</body>
-</html>
-
     </div>
 
 </body>
