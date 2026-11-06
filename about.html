@@ -38,10 +38,14 @@
             text-decoration: none;
         }
 
-        .logo-panjang {
-            height: 55px; 
-            width: auto; 
-            object-fit: contain;
+        /* Memaksa ukuran logo agar kecil */
+        .brand img {
+            height: 50px !important; 
+            width: auto !important; 
+            max-width: 250px;
+            border-radius: 50%;
+            background-color: white;
+            padding: 3px;
         }
 
         .nav-links a {
@@ -113,7 +117,7 @@
             margin-bottom: 20px;
         }
 
-        /* --- COUNTDOWN TIMER (Gaya Google Sites) --- */
+        /* --- COUNTDOWN TIMER --- */
         .timer-container {
             background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1518837695005-2083093ee35b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80');
             background-size: cover;
@@ -145,7 +149,7 @@
         }
 
         .timer span {
-            color: #FF3333; /* Warna merah untuk detik */
+            color: #FF3333;
         }
 
         .timer-labels {
@@ -159,7 +163,7 @@
             letter-spacing: 1px;
         }
 
-        /* --- TATA LETAK KIRI-KANAN (Warna & Wali Kelas) --- */
+        /* --- TATA LETAK KIRI-KANAN --- */
         .flex-row {
             display: flex;
             align-items: center;
@@ -227,7 +231,7 @@
             font-family: sans-serif;
         }
 
-        /* --- SECTION: FUN FACTS (IDE BARU) --- */
+        /* --- SECTION: FUN FACTS --- */
         .fun-facts-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -292,7 +296,7 @@
     <!-- NAVIGASI -->
     <div class="navbar">
         <a href="index.html" class="brand">
-            <img src="logo-xelvaron.png" alt="Logo Xelvaron" class="logo-panjang" style="height: 50px; border-radius: 50%; background: white;">
+            <img src="logo-xelvaron.png" alt="Logo Xelvaron">
         </a>
         <div class="nav-links">
             <a href="index.html">Home</a>
@@ -316,7 +320,6 @@
         <div class="timer-container">
             <h3>WE BEING TOGETHER</h3>
             <div class="timer" id="countup">
-                <!-- Angka akan diisi oleh JavaScript -->
                 0<span>:</span>00<span>:</span>00<span>:</span>00
             </div>
             <div class="timer-labels">
@@ -351,8 +354,8 @@
         <!-- WALI KELAS -->
         <div class="flex-row reverse">
             <div class="flex-img">
-                <!-- GANTI FOTO PAK AMIR DI SINI (Pastikan namanya foto-pak-amir.jpg) -->
-                <img src="foto-pak-amir.png" alt="Pak Amir Hamzah">
+                <!-- FOTO PAK AMIR (Saya ubah jadi .jpg agar sesuai standar) -->
+                <img src="foto-pak-amir.jpg" alt="Pak Amir Hamzah">
             </div>
             <div class="flex-text">
                 <h2>The Guide of Our Journey</h2>
@@ -360,7 +363,7 @@
             </div>
         </div>
 
-        <!-- IDE BARU: CLASS FUN FACTS -->
+        <!-- CLASS FUN FACTS -->
         <div class="glass-box">
             <h2>Class Fun Facts 🎉</h2>
             <p style="text-align: center; margin-bottom: 30px;">Every class has its own unique quirks. Here are some little secrets about X.5!</p>
@@ -390,8 +393,7 @@
 
     <!-- SCRIPT UNTUK TIMER OTOMATIS -->
     <script>
-        // Mengatur waktu mulai (Misal: 1 Juli 2023. Ganti tahun/bulan sesuai kapan kelas X.5 dimulai)
-        // Format: YYYY, MM (0-11), DD
+        // Format: YYYY, MM (0-11), DD (Bulan ke-6 = Juli)
         const startDate = new Date(2025, 6, 12).getTime(); 
 
         const timerElement = document.getElementById('countup');
@@ -405,7 +407,6 @@
             const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
             const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-            // Format angka agar selalu 2 digit (misal 05, bukan 5)
             const format = (num) => num < 10 ? "0" + num : num;
 
             timerElement.innerHTML = `${days}<span>:</span>${format(hours)}<span>:</span>${format(minutes)}<span>:</span><span>${format(seconds)}</span>`;
