@@ -17,7 +17,7 @@
             overflow-x: hidden;
         }
 
-        /* --- NAVIGASI (Memperbaiki Logo) --- */
+        /* --- NAVIGASI (Diperbaiki & Ditambah Teks) --- */
         .navbar {
             display: flex;
             justify-content: space-between; 
@@ -38,16 +38,23 @@
             text-decoration: none;
         }
 
-        /* Ukuran logo disesuaikan */
-        .logo-panjang {
-            height: 50px; 
-            width: auto; 
-            object-fit: contain;
-            transition: transform 0.3s ease;
+        /* Mengunci ukuran logo agar tidak raksasa */
+        .brand img {
+            height: 50px !important; 
+            width: auto !important; 
+            max-width: 250px;
+            border-radius: 50%;
+            background-color: white;
+            padding: 3px;
         }
 
-        .logo-panjang:hover {
-            transform: scale(1.03); 
+        /* Teks Xelvasite di samping logo */
+        .brand-text {
+            color: #FFFFFF;
+            font-size: 1.6em;
+            font-weight: bold;
+            letter-spacing: 1px;
+            margin-left: 12px;
         }
 
         .nav-links a {
@@ -66,7 +73,6 @@
 
         /* --- BACKGROUND FOTO KELAS --- */
         .hero-section {
-            /* Memanggil foto-kelas.JPG (huruf besar sesuai file Anda) */
             background-image: linear-gradient(rgba(42, 42, 42, 0.6), rgba(42, 42, 42, 0.8)), url('foto-kelas.JPG');
             background-size: cover;
             background-position: center;
@@ -240,7 +246,6 @@
             .sites-grid { grid-template-columns: 1fr; } 
             h1 { font-size: 2.5em; }
             .navbar { flex-direction: column; padding: 15px; }
-            .logo-panjang { height: 45px; }
             .nav-links { margin-top: 15px; display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
             .nav-links a { margin-left: 0; margin: 0 10px; }
             .hero-section { margin-top: 130px; height: 60vh; }
@@ -252,9 +257,8 @@
     <!-- NAVIGASI -->
     <div class="navbar">
         <a href="index.html" class="brand">
-            <!-- Menggunakan logo-xelvaron.png yang pasti ada di GitHub Anda -->
-            <!-- (Jika Anda sudah upload logo-panjang.png, ganti tulisan di bawah menjadi logo-panjang.png) -->
-            <img src="logo-xelvaron.png" alt="Logo Xelvaron" class="logo-panjang" style="border-radius: 50%; background: white;">
+            <img src="logo-xelvaron.png" alt="Logo Xelvaron">
+            <span class="brand-text">Xelvasite</span>
         </a>
         <div class="nav-links">
             <a href="index.html">Home</a>
@@ -267,7 +271,7 @@
 
     <!-- BACKGROUND FOTO -->
     <div class="hero-section">
-        <h1>Welcome to xelvasite o:</h1>
+        <h1>Welcome to Xelvasite o:</h1>
         <p class="tagline">"The last but never the least, the beginning of greatness."</p>
     </div>
 
@@ -301,7 +305,6 @@
                 <h3>dumpie 📸</h3>
                 <p>A random collection of fun, candid, and unforgettable moments shared by our class. 💥</p>
                 <div class="img-container">
-                    <!-- Nama file dobel .jpg.jpeg sesuai gambar GitHub Anda -->
                     <img src="foto-dump.jpg.jpeg" alt="Dumpie">
                 </div>
                 <a href="photodump.html" class="btn-small">Read More</a>
@@ -314,7 +317,6 @@
                 <h3>Achievements 🏆</h3>
                 <p>Proud moments and milestones we have reached together as a class.</p>
                 <div class="img-container">
-                    <!-- Nama file dobel .jpg.jpeg sesuai gambar GitHub Anda -->
                     <img src="foto-prestasi.jpg.jpeg" alt="Achievements">
                 </div>
                 <a href="achievements.html" class="btn-small">Read More</a>
