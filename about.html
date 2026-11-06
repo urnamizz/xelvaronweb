@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XELVARON - Meet Our Class</title>
+    <link rel="icon" href="logo-xelvaron.png" type="image/png">
+
+    <style>
+        /* Pengaturan Dasar */
+        body { 
+            font-family: 'Georgia', serif; 
+            margin: 0; 
+            padding: 0;
+            color: #E0E0E0; 
+            background-color: #3D3D3D; 
+            line-height: 1.6;
+        }
+
+        /* Navigasi */
+        .navbar {
+            display: flex;
+            justify-content: space-between; 
+            align-items: center;
+            padding: 10px 40px;
+            background-color: #2A2A2A; 
+            border-bottom: 2px solid #8D6E63; 
+            position: fixed; 
+            top: 0;
+            width: 100%;
+            box-sizing: border-box;
+            z-index: 1000;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .logo-panjang {
+            height: 55px; 
+            width: auto; 
+            object-fit: contain;
+        }
+
+        .nav-links a {
+            color: #E0E0E0;
+            text-decoration: none;
+            margin-left: 25px;
+            font-weight: bold;
+            font-family: sans-serif; 
+            font-size: 0.95em;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: #B0BEC5; 
+            border-bottom: 2px solid #8D6E63;
+        }
+
+        /* Header Halaman */
+        .page-header {
+            background-color: #2A2A2A;
+            text-align: center;
+            padding: 120px 20px 60px 20px;
+            border-bottom: 2px solid #8D6E63;
+        }
+
+        .page-header h1 {
+            font-size: 3.5em;
+            color: #FFFFFF;
+            margin: 0;
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+        }
+
+        .page-header p {
+            color: #B0BEC5;
+            font-style: italic;
+            font-size: 1.2em;
+            margin-top: 10px;
+        }
+
+        /* Konten Utama */
+        .content-container {
+            max-width: 1000px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+
+        .glass-box {
+            background-color: rgba(255, 255, 255, 0.05); 
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .glass-box h2 {
+            color: #FFFFFF;
+            border-bottom: 2px solid #8D6E63;
+            padding-bottom: 10px;
+            margin-top: 0;
+            font-size: 2em;
+            text-align: center;
+        }
+
+        .glass-box p {
+            font-size: 1.1em;
+            color: #D0D0D0;
+            text-align: justify;
+            margin-bottom: 20px;
+        }
+
+        /* --- COUNTDOWN TIMER (Gaya Google Sites) --- */
+        .timer-container {
+            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1518837695005-2083093ee35b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80');
+            background-size: cover;
+            background-position: center;
+            border-radius: 15px;
+            padding: 40px 20px;
+            text-align: center;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+        }
+
+        .timer-container h3 {
+            color: #B0BEC5;
+            font-family: sans-serif;
+            margin-top: 0;
+            font-size: 1.5em;
+            letter-spacing: 2px;
+        }
+
+        .timer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 4em;
+            font-weight: bold;
+            color: #FFFFFF;
+        }
+
+        .timer span {
+            color: #FF3333; /* Warna merah untuk detik */
+        }
+
+        .timer-labels {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            font-family: sans-serif;
+            color: #DDD;
+            margin-top: 10px;
+            font-size: 0.9em;
+            letter-spacing: 1px;
+        }
+
+        /* --- TATA LETAK KIRI-KANAN (Warna & Wali Kelas) --- */
+        .flex-row {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .flex-row.reverse {
+            flex-direction: row-reverse;
+        }
+
+        .flex-img {
+            flex: 1;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .flex-img img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .flex-text {
+            flex: 1;
+        }
+
+        .flex-text h2 {
+            text-align: left;
+            font-size: 2.5em;
+            color: #FFFFFF;
+            margin-bottom: 15px;
+            border: none;
+        }
+
+        /* Kotak Warna */
+        .color-palette {
+            display: flex;
+            height: 200px;
+            width: 100%;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .color-silver {
+            flex: 1;
+            background-color: #B0BEC5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #333;
+            font-weight: bold;
+            font-family: sans-serif;
+        }
+
+        .color-brown {
+            flex: 1;
+            background-color: #4A3525;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #FFF;
+            font-weight: bold;
+            font-family: sans-serif;
+        }
+
+        /* --- SECTION: FUN FACTS (IDE BARU) --- */
+        .fun-facts-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .fact-card {
+            background-color: rgba(176, 190, 197, 0.1);
+            border: 1px solid #8D6E63;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .fact-card:hover {
+            transform: translateY(-5px);
+            background-color: rgba(176, 190, 197, 0.2);
+        }
+
+        .fact-card h4 {
+            color: #B0BEC5;
+            margin-top: 0;
+            font-size: 1.2em;
+        }
+
+        .fact-card p {
+            text-align: center;
+            font-size: 1em;
+            margin-bottom: 0;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center; 
+            margin-top: 80px; 
+            padding: 30px 20px;
+            background-color: #2A2A2A;
+            font-size: 0.9em;
+            color: #888;
+        }
+
+        /* Responsif HP */
+        @media (max-width: 900px) {
+            .navbar { flex-direction: column; padding: 15px; }
+            .nav-links { margin-top: 15px; display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+            .nav-links a { margin-left: 0; margin: 0 10px; }
+            
+            .flex-row, .flex-row.reverse { flex-direction: column; gap: 20px; }
+            .flex-text h2 { text-align: center; font-size: 2em; }
+            
+            .timer { font-size: 2em; }
+            .timer-labels { gap: 10px; font-size: 0.7em; }
+            
+            .fun-facts-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVIGASI -->
+    <div class="navbar">
+        <a href="index.html" class="brand">
+            <img src="logo-panjang.png" alt="Logo Xelvaron" class="logo-panjang">
+        </a>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="about.html" class="active">Meet Our Class</a>
+            <a href="members.html">The Student's</a>
+            <a href="photodump.html">dumpie</a>
+            <a href="achievements.html">Achievements</a>
+        </div>
+    </div>
+
+    <!-- HEADER -->
+    <div class="page-header">
+        <h1>Meet Our Class</h1>
+        <p>The story, the colors, and the guide behind XELVARON</p>
+    </div>
+
+    <!-- KONTEN -->
+    <div class="content-container">
+        
+        <!-- TIMER COUNT-UP -->
+        <div class="timer-container">
+            <h3>we being together</h3>
+            <div class="timer" id="countup">
+                <!-- Angka akan diisi oleh JavaScript -->
+                0<span>:</span>00<span>:</span>00<span>:</span>00
+            </div>
+            <div class="timer-labels">
+                <span>DAYS</span>
+                <span>HOURS</span>
+                <span>MINUTES</span>
+                <span>SECONDS</span>
+            </div>
+        </div>
+
+        <!-- SEJARAH SINGKATAN -->
+        <div class="glass-box">
+            <h2>The Meaning of XELVARON ✨</h2>
+            <p>Xelvaron is an acronym for <strong>Xelerate Valiant Resonate</strong>, proudly representing the spirit of class X.5. Guided by the symbol of a five-pointed star, we are a collective driven to move swiftly (Xelerate), stand brave against obstacles (Valiant), and radiate a positive echo that inspires society (Resonate).</p>
+            <p style="text-align: center; font-style: italic; color: #B0BEC5; font-size: 1.2em;">"Like a star in the night sky, X.5 is bound to shine and lead the way."</p>
+        </div>
+
+        <!-- WARNA RESMI -->
+        <div class="flex-row">
+            <div class="flex-img">
+                <div class="color-palette">
+                    <div class="color-silver">SILVER</div>
+                    <div class="color-brown">BROWN</div>
+                </div>
+            </div>
+            <div class="flex-text">
+                <h2>Our Official Color</h2>
+                <p>Brown teaches us to stay humble and strong, while silver inspires us to shine and reach our dreams. Brown represents loyalty, comfort, and stability — like a strong foundation that keeps us together. Silver represents creativity, success, and a future full of possibilities. As a class, we believe these two colors perfectly reflect our journey: growing together, supporting one another, and continuing to shine no matter where life takes us.</p>
+            </div>
+        </div>
+
+        <!-- WALI KELAS -->
+        <div class="flex-row reverse">
+            <div class="flex-img">
+                <!-- GANTI FOTO PAK AMIR DI SINI (Pastikan namanya foto-pak-amir.jpg) -->
+                <img src="foto-pak-amir.png" alt="Pak Amir Hamzah">
+            </div>
+            <div class="flex-text">
+                <h2>The Guide of Our Journey</h2>
+                <p>Our beloved wali kelas, <strong>Pak Amir Hamzah</strong>, has taught us not only lessons from books, but also lessons about respect, discipline, and togetherness. He is the guiding star that keeps X.5 on the right track.</p>
+            </div>
+        </div>
+
+        <!-- IDE BARU: CLASS FUN FACTS -->
+        <div class="glass-box">
+            <h2>Class Fun Facts 🎉</h2>
+            <p style="text-align: center; margin-bottom: 30px;">Every class has its own unique quirks. Here are some little secrets about X.5!</p>
+            
+            <div class="fun-facts-grid">
+                <div class="fact-card">
+                    <h4>🎵 Class Anthem</h4>
+                    <p>"[everysong reyfan play at HDMI]"</p>
+                </div>
+                <div class="fact-card">
+                    <h4>🍔 Favorite Food</h4>
+                    <p>"[everytime someone birthday and we get food]"</p>
+                </div>
+                <div class="fact-card">
+                    <h4>🤫 Inside Joke</h4>
+                    <p>"[we on top, solid kompak, we never stop]"</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+        &copy; 2025-2028 XELVARON. Made with ❤️ by the class.
+    </div>
+
+    <!-- SCRIPT UNTUK TIMER OTOMATIS -->
+    <script>
+        // Mengatur waktu mulai (Misal: 1 Juli 2023. Ganti tahun/bulan sesuai kapan kelas X.5 dimulai)
+        // Format: YYYY, MM (0-11), DD
+        const startDate = new Date(2025, 6, 12).getTime(); 
+
+        const timerElement = document.getElementById('countup');
+
+        setInterval(function() {
+            const now = new Date().getTime();
+            const distance = now - startDate;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // Format angka agar selalu 2 digit (misal 05, bukan 5)
+            const format = (num) => num < 10 ? "0" + num : num;
+
+            timerElement.innerHTML = `${days}<span>:</span>${format(hours)}<span>:</span>${format(minutes)}<span>:</span><span>${format(seconds)}</span>`;
+        }, 1000);
+    </script>
+
+</body>
+</html>
