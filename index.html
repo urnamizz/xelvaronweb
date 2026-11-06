@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XELVARON - Home</title>
+    
+    <!-- Ganti "logo-xelvaron.png" jika nama file logo Anda berbeda -->
+    <link rel="icon" href="logo-xelvaron.png" type="image/png">
+
+    <style>
+        /* Pengaturan Dasar */
+        body { 
+            font-family: 'Georgia', serif; 
+            margin: 0; /* Menghilangkan margin bawaan agar full screen */
+            padding: 0;
+            color: #E0E0E0; /* Warna teks silver terang */
+            background-color: #4A4A4A; /* Warna latar abu-abu gelap kecoklatan seperti gambar Anda */
+            line-height: 1.6;
+        }
+
+        /* --- BAGIAN NAVIGASI ATAS (Header) --- */
+        .navbar {
+            display: flex;
+            justify-content: space-between; /* Memisahkan kiri dan kanan */
+            align-items: center;
+            padding: 15px 40px;
+            background-color: #3D3D3D; /* Latar header sedikit lebih gelap */
+            border-bottom: 2px solid #6D4C41; /* Garis bawah warna coklat */
+        }
+
+        /* Bagian Kiri: Logo & Tulisan */
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 15px; /* Jarak antara logo dan tulisan */
+            text-decoration: none;
+        }
+
+        .logo-small {
+            width: 45px; /* Ukuran logo disesuaikan agar pas di samping teks */
+            height: 45px;
+            border-radius: 50%; /* Membuat logo bulat */
+            object-fit: cover;
+            border: 2px solid #E0E0E0; /* Bingkai silver */
+        }
+
+        .brand-name {
+            font-size: 1.8em;
+            font-weight: bold;
+            color: #FFFFFF; /* Tulisan putih */
+            letter-spacing: 1px;
+        }
+
+        /* Bagian Kanan: Menu */
+        .nav-links a {
+            color: #E0E0E0;
+            text-decoration: none;
+            margin-left: 20px;
+            font-weight: bold;
+            font-family: sans-serif; /* Font menu dibuat lebih modern */
+            font-size: 0.95em;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #B0BEC5; /* Berubah warna silver saat di-hover */
+        }
+
+        /* --- BAGIAN KONTEN UTAMA (Tengah) --- */
+        .container {
+            max-width: 800px;
+            margin: 60px auto;
+            padding: 0 20px;
+            text-align: left; /* Teks rata kiri seperti gambar Anda */
+        }
+
+        h1 { 
+            color: #FFFFFF; 
+            font-size: 3.5em;
+            margin-bottom: 20px;
+            text-align: center;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .tagline {
+            color: #B0BEC5; /* Warna Silver */
+            font-style: italic;
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 1.1em;
+        }
+
+        p {
+            font-size: 1.1em;
+            margin-bottom: 20px;
+        }
+
+        /* --- TOMBOL & MENU GRID (Untuk navigasi ke halaman lain) --- */
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+        }
+        
+        .card {
+            background-color: #5A5A5A;
+            padding: 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            color: #FFFFFF;
+            text-align: center;
+            font-weight: bold;
+            border: 1px solid #757575;
+            transition: all 0.3s ease;
+        }
+        
+        .card:hover {
+            background-color: #6D4C41; /* Berubah coklat saat di-hover */
+            transform: translateY(-3px);
+        }
+
+        .ig-button {
+            display: inline-block;
+            background-color: #6D4C41; 
+            color: #FFFFFF;
+            padding: 12px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 30px;
+            border: 1px solid #B0BEC5; 
+        }
+        
+        .ig-button:hover { background-color: #5D4037; }
+
+    </style>
+</head>
+<body>
+
+    <!-- BAGIAN ATAS: NAVIGASI -->
+    <div class="navbar">
+        <!-- Logo & Nama di Kiri -->
+        <a href="index.html" class="brand">
+            <!-- Pastikan nama file logo di bawah ini sesuai -->
+            <img src="logo-xelvaron.png" alt="Logo" class="logo-small">
+            <span class="brand-name">xelvaron</span>
+        </a>
+        
+        <!-- Menu di Kanan -->
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">Meet Our Class</a>
+            <a href="members.html">The Student's</a>
+            <a href="photodump.html">dumpie</a>
+        </div>
+    </div>
+
+    <!-- BAGIAN TENGAH: KONTEN -->
+    <div class="container">
+        
+        <h1>Welcome to xelvasite o:</h1>
+        <p class="tagline">"The last but never the least, the beginning of greatness."</p>
+
+        <p>hello welcome to xelva web :p 👋</p>
+        <p>This website was created to capture and share our memories, experiences, and journey together as a class. Here, you can find fun moments, class activities, galleries, and many little stories that make our class special.</p>
+        
+        <p>We hope this website becomes a place where our laughter, hard work, and togetherness will always be remembered. Thank you for visiting, and enjoy exploring our website! ✨</p>
+
+        <!-- Menu Kotak Navigasi -->
+        <div class="menu-grid">
+            <a href="members.html" class="card">👥 Class Members</a>
+            <a href="achievements.html" class="card">🏆 Achievements</a>
+            <a href="photodump.html" class="card">📸 Photo Dump</a>
+            <a href="about.html" class="card">✨ About The Class</a>
+        </div>
+
+        <!-- Instagram -->
+        <div style="text-align: center; margin-top: 50px;">
+            <a href="https://instagram.com/ganti_dengan_ig_kelas" target="_blank" class="ig-button">
+                📷 Follow @XELVARON on Instagram
+            </a>
+        </div>
+
+    </div>
+
+</body>
+</html>
