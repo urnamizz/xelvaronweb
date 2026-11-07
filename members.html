@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XELVARON - The Students</title>
+    <link rel="icon" href="logo-xelvaron.png" type="image/png">
+
+    <style>
+        /* Pengaturan Dasar */
+        body { 
+            font-family: 'Georgia', serif; 
+            margin: 0; 
+            padding: 0;
+            color: #E0E0E0; 
+            background-color: #3D3D3D; 
+            line-height: 1.6;
+        }
+
+        /* Navigasi */
+        .navbar {
+            display: flex;
+            justify-content: space-between; 
+            align-items: center;
+            padding: 10px 40px;
+            background-color: #2A2A2A; 
+            border-bottom: 2px solid #8D6E63; 
+            position: fixed; 
+            top: 0;
+            width: 100%;
+            box-sizing: border-box;
+            z-index: 1000;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .brand img {
+            height: 50px !important; 
+            width: auto !important; 
+            max-width: 250px;
+            border-radius: 50%;
+            background-color: white;
+            padding: 3px;
+        }
+
+        .brand-text {
+            color: #FFFFFF;
+            font-size: 1.6em;
+            font-weight: bold;
+            letter-spacing: 1px;
+            margin-left: 12px;
+        }
+
+        .nav-links a {
+            color: #E0E0E0;
+            text-decoration: none;
+            margin-left: 25px;
+            font-weight: bold;
+            font-family: sans-serif; 
+            font-size: 0.95em;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: #B0BEC5; 
+            border-bottom: 2px solid #8D6E63;
+        }
+
+        /* Header Halaman */
+        .page-header {
+            background-color: #2A2A2A;
+            text-align: center;
+            padding: 120px 20px 60px 20px;
+            border-bottom: 2px solid #8D6E63;
+        }
+
+        .page-header h1 {
+            font-size: 3.5em;
+            color: #FFFFFF;
+            margin: 0;
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+        }
+
+        .page-header p {
+            color: #B0BEC5;
+            font-style: italic;
+            font-size: 1.2em;
+            margin-top: 10px;
+        }
+
+        /* Konten Utama */
+        .content-container {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+
+        /* --- DESAIN GRID SISWA --- */
+        .students-grid {
+            display: grid;
+            /* Membuat 3 kolom sejajar. Jika layar kecil, otomatis jadi 1 atau 2 */
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+            gap: 30px;
+        }
+
+        .student-card {
+            background-color: rgba(255, 255, 255, 0.05); 
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            overflow: hidden;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            padding-bottom: 20px;
+        }
+
+        .student-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            background-color: rgba(141, 110, 99, 0.15);
+        }
+
+        /* Kotak Foto Siswa */
+        .student-img {
+            width: 100%;
+            height: 350px; /* Tinggi foto diseragamkan */
+            object-fit: cover; /* Agar foto tidak gepeng */
+            border-bottom: 2px solid #8D6E63;
+        }
+
+        .student-info {
+            padding: 20px;
+        }
+
+        .student-name {
+            font-size: 1.6em;
+            color: #FFFFFF;
+            margin: 10px 0 5px 0;
+        }
+
+        .student-nickname {
+            font-size: 1em;
+            color: #B0BEC5;
+            font-style: italic;
+            margin: 0;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center; 
+            margin-top: 80px; 
+            padding: 30px 20px;
+            background-color: #2A2A2A;
+            font-size: 0.9em;
+            color: #888;
+        }
+
+        @media (max-width: 900px) {
+            .navbar { flex-direction: column; padding: 15px; }
+            .nav-links { margin-top: 15px; display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+            .nav-links a { margin-left: 0; margin: 0 10px; }
+            .page-header h1 { font-size: 2.5em; }
+            .student-img { height: 300px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVIGASI -->
+    <div class="navbar">
+        <a href="index.html" class="brand">
+            <img src="logo-xelvaron.png" alt="Logo Xelvaron">
+            <span class="brand-text">Xelvasite</span>
+        </a>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">Meet Our Class</a>
+            <a href="members.html" class="active">The Student's</a>
+            <a href="photodump.html">Dumpie</a>
+            <a href="achievements.html">Achievements</a>
+        </div>
+    </div>
+
+    <!-- HEADER -->
+    <div class="page-header">
+        <h1>The Students</h1>
+        <p>The faces behind XELVARON</p>
+    </div>
+
+    <!-- KONTEN -->
+    <div class="content-container">
+        
+        <div class="students-grid">
+
+            <!-- ================= SISWA 1 ================= -->
+            <div class="student-card">
+                <img src="aza.png" alt="Siswa 1" class="student-img">
+                <div class="student-info">
+                    <h3 class="student-name">Afrah Azzahrah</h3>
+                    <p class="student-nickname">We usually call her aza</p>
+                </div>
+            </div>
+
+            <!-- ================= SISWA 2 ================= -->
+            <div class="student-card">
+                <img src="ashar.png" alt="Siswa 2" class="student-img">
+                <div class="student-info">
+                    <h3 class="student-name">Al Ashar Sarwan Saputra</h3>
+                    <p class="student-nickname">Around the class, he is known as ashar</p>
+                </div>
+            </div>
+
+            <!-- ================= SISWA 3 ================= -->
+            <div class="student-card">
+                <img src="alfath.png" alt="Siswa 3" class="student-img">
+                <div class="student-info">
+                    <h3 class="student-name">Alfath Barakh Tosepu</h3>
+                    <p class="student-nickname">Everyone usually calls him alfath or bartos</p>
+                </div>
+            </div>
+
+            <!-- ================= SISWA 4 ================= -->
+            <div class="student-card">
+                <img src="mia.png" alt="Siswa 4" class="student-img">
+                <div class="student-info">
+                    <h3 class="student-name">Amira Tungga Dewi</h3>
+                    <p class="student-nickname">We know her better as mia</p>
+                </div>
+            </div>
+
+            <!-- ================= SISWA 5 ================= -->
+            <div class="student-card">
+                <img src="amirah.png" alt="Siswa 5" class="student-img">
+                <div class="student-info">
+                    <h3 class="student-name">Amirah Nurhikmah</h3>
+                    <p class="student-nickname">In our class, she goes by amnur</p>
+                </div>
+            </div>
+
+            <!-- ================= SISWA 6 ================= -->
+            <div class="student-card">
+                <img src="audi.png" alt="Siswa 6" class="student-img">
+                <div class="student-info">
+                    <h3 class="student-name">Andi Audi Az-Zahra Iwan</h3>
+                    <p class="student-nickname">She is popularly known as audi in our class.</p>
+                </div>
+            </div>
+
+            <!-- ================= SISWA 7 ================= -->
+            <div class="student-card">
+                <img src="awwab.png" alt="Siswa 7" class="student-img">
+                <div class="student-info">
+                    <h3 class="student-name">Awwab Hasyid Aksal Adana</h3>
+                    <p class="student-nickname">His nickname in class is awap</p>
+                </div>
+            </div>
+
+            <!-- ================= SISWA 8 ================= -->
+            <div class="student-card">
+                <img src="eva.png" alt="Siswa 8" class="student-img">
+                <div class="student-info">
+                    <h3 class="student-name">Eva Celia Hermadi</h3>
+                    <p class="student-nickname">Most of us call her eva</p>
+                </div>
+            </div>
+
+            <!-- ================= SISWA 9 ================= -->
+            <div class="student-card">
+                <img src="muti.png" alt="Siswa 9" class="student-img">
+                <div class="student-info">
+                    <h3 class="student-name">Fadyah Muthia Sari</h3>
+                    <p class="student-nickname">Her classmates usually refer to her as muti</p>
+                </div>
+            </div>
+
+            <!-- ================= SISWA 10 ================= -->
+            <div class="student-card">
+                <img src="ihsan.png" alt="Siswa 10" class="student-img">
+                <div class="student-info">
+                    <h3 class="student-name">Ihsan Nasrullah</h3>
+                    <p class="student-nickname">He is often called isan by us</p>
+                </div>
+            </div>
+
+            <!-- ================= SISWA 11 ================= -->
+            <div class="student-card">
+                <img src="dzaky.png" alt="Siswa 11" class="student-img">
+                <div class="student-info">
+                    <h3 class="student-name">Muh. Dzaqy Al Falaq</h3>
+                    <p class="student-nickname">In daily life, we call him zaki or falaq</p>
+                </div>
+            </div>
+
+            <!-- ================= SISWA 12 ================= -->
+            <div class="student-card">
+                <img src="siswa12.jpg" alt="Siswa 12" class="student-img">
+                <div class="student-info">
+                    <h3 class="student-name">Muh. Raditya Fakhri</h3>
+                    <p class="student-nickname">He is popularly called fahri</p>
+                </div>
+            </div>
+
+            <!-- ================= SISWA 13 ================= -->
+            <div class="student-card">
+                <img src="rafi.png" alt="Siswa 13" class="student-img">
+                <div class="student-info">
+                    <h3 class="student-name">Muh. Rafi Putra Billa</h3>
+                    <p class="student-nickname">He is mostly called rafi by everyone.</p>
+                </div>
+            </div>
+
+            <!-- ================= SISWA 14 ================= -->
+            <div class="student-card">
+                <img src="repan.png" alt="Siswa 14" class="student-img">
+                <div class="student-info">
+                    <h3 class="student-name">Muh. Reyfan Agung Fahrezi</h3>
+                    <p class="student-nickname">Most students know him as repan</p>
+                </div>
+            </div>
+
+            <!-- ================= SISWA 15 ================= -->
+            <div class="student-card">
+                <img src="syraf.png" alt="Siswa 15" class="student-img">
+                <div class="student-info">
+                    <h3 class="student-name">Muhammad Asyraf Reyhan Syahril</h3>
+                    <p class="student-nickname">We often hear people calling him asyraf or reyhan</p>
+                </div>
+            </div>
+
+            <!-- ================= SISWA 16 ================= -->
+            <div class="student-card">
+                <img src="nabila.png" alt="Siswa 16" class="student-img">
+                <div class="student-info">
+                    <h3 class="student-name">Nabilah Aulya Albar</h3>
+                    <p class="student-nickname">She is simply known as nabila</p>
+                </div>
+            </div>
+
+            <!-- ================= SISWA 17 ================= -->
+            <div class="student-card">
+                <img src="nada.png" alt="Siswa 17" class="student-img">
+                <div class="student-info">
+                    <h3 class="student-name">Nada Kwairah Arba</h3>
+                    <p class="student-nickname">She is better known by the name nada</p>
+                </div>
+            </div>
+
+            <!-- ================= SISWA 18 ================= -->
+            <div class="student-card">
+                <img src="aji.png" alt="Siswa 18" class="student-img">
+                <div class="student-info">
+                    <h3 class="student-name">Najmuddin</h3>
+                    <p class="student-nickname">The class gave him the nickname na jaemin but everyone know him as aji</p>
+                </div>
+            </div>
+
+            <!-- ================= SISWA 19 ================= -->
+            <div class="student-card">
+                <img src="siswa19.jpg" alt="Siswa 19" class="student-img">
+                <div class="student-info">
+                    <h3 class="student-name">Risdan Prasetya</h3>
+                    <p class="student-nickname">Most teachers know him as risdan</p>
+                </div>
+            </div>
+
+            <!-- ================= SISWA 20 ================= -->
+            <div class="student-card">
+                <img src="aira.png" alt="Siswa 20" class="student-img">
+                <div class="student-info">
+                    <h3 class="student-name">Sitti Zahra Aira Badi</h3>
+                    <p class="student-nickname">She’s widely known as aira</p>
+                </div>
+            </div>
+
+            <!-- ================= SISWA 21 ================= -->
+            <div class="student-card">
+                <img src="siswa21.jpg" alt="Siswa 21" class="student-img">
+                <div class="student-info">
+                    <h3 class="student-name">Yusminar Nala Yusmin</h3>
+                    <p class="student-nickname">Among friends, she’s called nala</p>
+                </div>
+            </div>
+
+            <!-- ================= SISWA 22 ================= -->
+            <div class="student-card">
+                <img src="zara.png" alt="Siswa 22" class="student-img">
+                <div class="student-info">
+                    <h3 class="student-name">Zahratul Jannah Naim</h3>
+                    <p class="student-nickname">We always call her zahratul</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+        &copy; 2025-2028 XELVARON. Made with ❤️ by the class.
+    </div>
+
+</body>
+</html>
