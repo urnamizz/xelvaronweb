@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XELVARON - Achievements</title>
+    <link rel="icon" href="logo-xelva.png" type="image/png">
+
+    <style>
+        /* Pengaturan Dasar */
+        body { 
+            font-family: 'Georgia', serif; 
+            margin: 0; 
+            padding: 0;
+            color: #E0E0E0; 
+            background-color: #3D3D3D; 
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Navigasi */
+        .navbar {
+            display: flex;
+            justify-content: space-between; 
+            align-items: center;
+            padding: 10px 40px;
+            background-color: #2A2A2A; 
+            border-bottom: 2px solid #8D6E63; 
+            position: fixed; 
+            top: 0;
+            width: 100%;
+            box-sizing: border-box;
+            z-index: 1000;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .brand img {
+            height: 50px !important; 
+            width: auto !important; 
+            max-width: 250px;
+            border-radius: 50%;
+            background-color: white;
+            padding: 3px;
+        }
+
+        .brand-text {
+            color: #FFFFFF;
+            font-size: 1.6em;
+            font-weight: bold;
+            letter-spacing: 1px;
+            margin-left: 12px;
+        }
+
+        .nav-links a {
+            color: #E0E0E0;
+            text-decoration: none;
+            margin-left: 25px;
+            font-weight: bold;
+            font-family: sans-serif; 
+            font-size: 0.95em;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: #B0BEC5; 
+            border-bottom: 2px solid #8D6E63;
+        }
+
+        /* --- HEADER FOTO BESAR (Seperti Google Sites) --- */
+        .achievement-hero {
+            /* Ganti nama file di bawah ini dengan foto Anda */
+            background-image: linear-gradient(rgba(42, 42, 42, 0.7), rgba(42, 42, 42, 0.9)), url('foto-prestasi-bg.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            padding: 150px 20px 80px 20px;
+            text-align: center;
+            border-bottom: 4px solid #8D6E63;
+        }
+
+        .achievement-hero h1 {
+            font-size: 4em;
+            color: #FFFFFF;
+            margin: 0;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.9);
+            letter-spacing: 2px;
+        }
+
+        .achievement-hero .trophy {
+            font-size: 3em;
+            margin-bottom: 10px;
+        }
+
+        /* Konten Utama */
+        .content-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Kotak Teks Pengantar */
+        .intro-box {
+            background-color: #F5F5F5; /* Warna terang seperti di Google Sites */
+            color: #333;
+            padding: 40px;
+            border-radius: 10px;
+            margin-bottom: 50px;
+            text-align: center;
+            font-size: 1.2em;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        /* --- GRID PRESTASI --- */
+        .section-title {
+            text-align: center;
+            font-size: 2.5em;
+            color: #FFFFFF;
+            margin-top: 60px;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #8D6E63;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+
+        .achievement-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .achievement-card {
+            background-color: rgba(255, 255, 255, 0.05); 
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .achievement-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+            background-color: rgba(141, 110, 99, 0.15);
+        }
+
+        .achievement-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-bottom: 1px solid #555;
+        }
+
+        .achievement-info {
+            padding: 20px;
+        }
+
+        .achievement-info h3 {
+            font-size: 1.3em;
+            color: #FFFFFF;
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+
+        .achievement-info p {
+            font-size: 0.95em;
+            color: #B0BEC5;
+            margin: 0;
+        }
+
+        .badge {
+            display: inline-block;
+            background-color: #8D6E63;
+            color: #FFF;
+            padding: 3px 10px;
+            border-radius: 5px;
+            font-family: sans-serif;
+            font-size: 0.8em;
+            margin-bottom: 10px;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center; 
+            margin-top: 80px; 
+            padding: 30px 20px;
+            background-color: #2A2A2A;
+            font-size: 0.9em;
+            color: #888;
+        }
+
+        @media (max-width: 900px) {
+            .navbar { flex-direction: column; padding: 15px; }
+            .nav-links { margin-top: 15px; display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+            .nav-links a { margin-left: 0; margin: 0 10px; }
+            .achievement-hero h1 { font-size: 2.5em; }
+            .intro-box { padding: 20px; font-size: 1em; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVIGASI -->
+    <div class="navbar">
+        <a href="index.html" class="brand">
+            <img src="logo-xelva.png" alt="Logo Xelvaron">
+            <span class="brand-text">Xelvasite</span>
+        </a>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">Meet Our Class</a>
+            <a href="members.html">The Student's</a>
+            <a href="photodump.html">Dumpie</a>
+            <a href="achievements.html" class="active">Achievements</a>
+        </div>
+    </div>
+
+    <!-- HEADER FOTO -->
+    <div class="achievement-hero">
+        <div class="trophy">🏆</div>
+        <h1>Achievements</h1>
+    </div>
+
+    <!-- KONTEN -->
+    <div class="content-container">
+        
+        <!-- Teks Pengantar (Gaya Google Sites) -->
+        <div class="intro-box">
+            <p><strong>These are competitions and achievements earned by Xelvaron students</strong>, showcasing their talents, hard work, and dedication in various academic events and competitions. 🏆✨</p>
+            <hr style="border: 1px solid #ddd; margin: 20px 0;">
+            <p>These are the competitions and achievements proudly accomplished by our class within the school, reflecting our teamwork, creativity, and class spirit in various school events and activities. 🥇✨</p>
+        </div>
+
+        <!-- ========================================== -->
+        <!-- BAGIAN 1: PRESTASI DI LUAR SEKOLAH (15)    -->
+        <!-- ========================================== -->
+        <div style="text-align: center;">
+            <h2 class="section-title">External Achievements (Outside School)</h2>
+        </div>
+
+        <div class="achievement-grid">
+            
+            <!-- LOOPING LUAR SEKOLAH 1 - 15 -->
+            <!-- 1 -->
+            <div class="achievement-card">
+                <img src="dzaky-games26.png" alt="Prestasi Luar 1" class="achievement-img">
+                <div class="achievement-info">
+                    <span class="badge">Juara 3</span>
+                    <h3>GEBYAR MATEMATIKA SAINS(GAMES) UHO 26</h3>
+                    <p>Dzaky proudly won 3rd place in the Mathematics Olympiad at Gebyar Matematika Sains (GAMES) 2026. His achievement reflects exceptional talent, hard work, and dedication. We are very proud of his success, which brought honor and inspiration to our class</p>
+                </div>
+            </div>
+            <!-- 2 -->
+            <div class="achievement-card">
+                <img src="dzaky-alfath-isan-fsn.png" alt="Prestasi Luar 2" class="achievement-img">
+                <div class="achievement-info">
+                    <span class="badge">Tingkat Nasional</span>
+                    <h3>Festival Sains Nasional (FSN) 2026</h3>
+                    <p>Our students proudly qualified for the National Level. Dzaky (Mathematics), Ihsan (Earth Science), and Alfath (Physics) have shown exceptional talent and hard work. We are very proud of their success, which brought honor and inspiration to our class.</p>
+                </div>
+            </div>
+            <!-- 3 -->
+            <div class="achievement-card">
+                <img src="aza-obi.png" alt="Prestasi Luar 3" class="achievement-img">
+                <div class="achievement-info">
+                    <span class="badge">Medali Perunggu</span>
+                    <h3>Olimpiade Biologi Indonesia (OBI) 2026</h3>
+                    <p>Afrah Azzahrah proudly won a Bronze Medal in Study Case A at the National Level. Her achievement reflects exceptional talent, hard work, and dedication. We are very proud of her success, which brought honor and inspiration to our class.</p>
+                </div>
+            </div>
+            <!-- 4 -->
+            <div class="achievement-card">
+                <img src="dzaky-timo.png" alt="Prestasi Luar 4" class="achievement-img">
+                <div class="achievement-info">
+                    <span class="badge">Bronze Award</span>
+                    <h3>Thailand International Mathematical Olympiad (TIMPO) 2026</h3>
+                    <p>Dzaky proudly won a Bronze Award at the TIMPO Heat Round 2026, representing Indonesia. His achievement reflects exceptional talent, hard work, and dedication. We are very proud of his success, which brought honor and inspiration to our class.<</p>
+                </div>
+            </div>
+            <!-- 5 -->
+            <div class="achievement-card">
+                <img src="ashar-aza-o2aser26.png" alt="Prestasi Luar 5" class="achievement-img">
+                <div class="achievement-info">
+                    <span class="badge">Juara 2 & 4</span>
+                    <h3>O2ASER UIN Kendari 2026</h3>
+                    <p>Our students proudly achieved great results at O2ASER UIN Kendari 2026. Afrah and Ashar won 2nd place in Biology and Chemistry, while Ihsan and Raditya achieved 4th place in Futsal as part of the team. Their achievements reflect exceptional talent, hard work, and dedication. We are very proud of their success, which brought honor and inspiration to our class.</p>
+                </div>
+            </div>
+            <!-- 6 -->
+            <div class="achievement-card">
+                <img src="acha-omnas.png" alt="Prestasi Luar 6" class="achievement-img">
+                <div class="achievement-info">
+                    <span class="badge">Tingkat Nasional</span>
+                    <h3>>Olimpiade Madrasah Indonesia (OMI) 2026</h3>
+                    <p>Ashar proudly qualified for the National Level of the Indonesian Madrasah Olympiad (OMI) 2026 in Chemistry, representing Southeast Sulawesi. His achievement reflects exceptional talent, hard work, and dedication. We are very proud of his success, which brought honor and inspiration to our class.</p>
+                </div>
+            </div>
+            <!-- 7 -->
+            <div class="achievement-card">
+                <img src="eva-lkti.png" alt="Prestasi Luar 7" class="achievement-img">
+                <div class="achievement-info">
+                    <span class="badge">Juara 3</span>
+                    <h3>Serba Serbi Biologi (S3BIOL) 2026</h3>
+                    <p>Eva proudly won 3rd place in the Scientific Paper Competition (LKTI) at S3BIOL 2026, held by FMIPA Universitas Haluoleo at the Provincial Level. Her achievement reflects exceptional talent, hard work, and dedication. We are very proud of her success, which brought honor and inspiration to our class.</p>
+                </div>
+            </div>
+            <!-- 8 -->
+            <div class="achievement-card">
+                <img src="dzaky-gstar.png" alt="Prestasi Luar 8" class="achievement-img">
+                <div class="achievement-info">
+                    <span class="badge">Juara 3</span>
+                    <h3>Gebyar Statistika Dasar (G-STAR) 2026</h3>
+                    <p>Dzaky proudly won 3rd place in the Basic Statistics Competition (G-STAR) 2026 at the High School Level, held at Universitas Haluoleo. His achievement reflects exceptional talent, hard work, and dedication. We are very proud of his success, which brought honor and inspiration to our class.</p>
+                </div>
+            </div>
+            <!-- 9 -->
+            <div class="achievement-card">
+                <img src="aza-holistik26.png" alt="Prestasi Luar 9" class="achievement-img">
+                <div class="achievement-info">
+                    <span class="badge">Juara 2</span>
+                    <h3>Olimpiade Kedokteran Dasar - HOLISTIC 2026</h3>
+                    <p>Afrah proudly won 2nd place in the Basic Medical Olympiad at HOLISTIC 2026, held at the Faculty of Medicine, Universitas Haluoleo (Provincial Level). Her achievement reflects exceptional talent, hard work, and dedication. We are very proud of her success, which brought honor and inspiration to our class.</p>
+                </div>
+            </div>
+            <!-- 10 -->
+            <div class="achievement-card">
+                <img src="acha-omiprov.png" alt="Prestasi Luar 10" class="achievement-img">
+                <div class="achievement-info">
+                    <span class="badge">Juara 1 & 3 Kab/Kota</span>
+                    <h3>Olimpiade Madrasah Indonesia (OMI) 2026</h3>
+                    <p>Dzaky and Ashar proudly achieved great results at the OMI 2026 Kabupaten/Kota Level. Ashar won 1st place in Chemistry, while Dzaky achieved 3rd place in Mathematics. Their achievements reflect exceptional talent, hard work, and dedication. We are very proud of their success, which brought honor and inspiration to our class.</p>
+                </div>
+            </div>
+            <!-- 11 -->
+            <div class="achievement-card">
+                <img src="alfat-finalis.png" alt="Prestasi Luar 11" class="achievement-img">
+                <div class="achievement-info">
+                    <span class="badge">Semi Finalis Provinsi</span>
+                    <h3>Olimpiade Sains Nasional (OSN) 2026</h3>
+                    <p>Alfath proudly qualified for the Provincial Level and advanced to the Semi-Final Round of the National Science Olympiad (OSN) 2026 in Physics. His achievement reflects exceptional talent, hard work, and dedication. We are very proud of his success, which brought honor and inspiration to our class.</p>
+                </div>
+            </div>
+            <!-- 12 -->
+            <div class="achievement-card">
+                <img src="prestasi-luar12.jpg" alt="Prestasi Luar 12" class="achievement-img">
+                <div class="achievement-info">
+                    <span class="badge">Juara 1</span>
+                    <h3>Nama Lomba 12</h3>
+                    <p>Tingkat Kota / Robotik. Oleh: Tim Robotik.</p>
+                </div>
+            </div>
+            <!-- 13 -->
+            <div class="achievement-card">
+                <img src="alfath-osp.png" alt="Prestasi Luar 13" class="achievement-img">
+                <div class="achievement-info">
+                    <span class="badge">Tingkat Provinsi</span>
+                    <h3>Olimpiade Sains Nasional (OSN) 2026</h3>
+                    <p>Alfath proudly qualified for the Provincial Level of the National Science Olympiad (OSN) 2026 in Physics. His achievement reflects exceptional talent, hard work, and dedication. We are very proud of his success, which brought honor and inspiration to our class.</p>
+                </div>
+            </div>
+            <!-- 14 -->
+            <div class="achievement-card">
+                <img src="rafi-lcc.png" alt="Prestasi Luar 14" class="achievement-img">
+                <div class="achievement-info">
+                    <span class="badge">Tingkat Kab/Kota</span>
+                    <h3>Lomba Cerdas Cermat (LCC) Empat Pilar MPR RI 2026</h3>
+                    <p>Rafi proudly qualified for the Kabupaten/Kota and Provincial Level of the Four Pillars of MPR RI Quiz Competition (LCC) 2026 in Southeast Sulawesi. His achievement reflects exceptional talent, hard work, and dedication. We are very proud of his success, which brought honor and inspiration to our class.</p>
+                </div>
+            </div>
+            <!-- 15 -->
+            <div class="achievement-card">
+                <img src="aza-posi.png" alt="Prestasi Luar 15" class="achievement-img">
+                <div class="achievement-info">
+                    <span class="badge">Medali Perak</span>
+                    <h3>Olimpiade Sains Indonesia (POSI) 2026</h3>
+                    <p>Afrah proudly won a Silver Medal in Biology at the Indonesian Science Olympiad (POSI) 2026, held at IPB University, Bogor. Her achievement reflects exceptional talent, hard work, and dedication. We are very proud of her success, which brought honor and inspiration to our class.</p>
+                </div>
+            </div>
+             <!-- 16 -->
+            <div class="achievement-card">
+                <img src="eva-ldbi.png" alt="Prestasi Luar 15" class="achievement-img">
+                <div class="achievement-info">
+                    <span class="badge">Juara 3</span>
+                    <h3>Lomba Debat Bahasa Indonesia 2026</h3>
+                    <p>Eva proudly won 3rd place in the Indonesian Language Debate Competition at the Kota Kendari Level, organized by Puspresnas. Her achievement reflects exceptional talent, hard work, and dedication. We are very proud of her success, which brought honor and inspiration to our class.</p>
+                </div>
+            </div>
+          <!-- 17 -->
+          <div class="achievement-card">
+            <img src="muti-pamer26.png" alt="Prestasi Muthia" class="achievement-img">
+            <div class="achievement-info">
+              <span class="badge">Juara 1</span>
+              <h3>PAMER (Pekan Matematika Kreatif) Season XIX 2026</h3>
+              <p>Muthia proudly won 1st place in the Mathematics Word Accuracy Competition at PAMER (Pekan Matematika Kreatif) Season XIX UHO 26. Her achievement reflects exceptional talent, hard work, and dedication. We are very proud of her success, which brought honor and inspiration to our class.</p>
+           </div>
+      </div>
+          <!-- 17 -->
+          <div class="achievement-card">
+            <img src="ashar-komik26.png" alt="Prestasi Ashar" class="achievement-img">
+            <div class="achievement-info">
+              <span class="badge">Juara 1</span>
+              <h3>Colour Of Chemistry Festival 2026</h3>
+              <p>Ashar proudly won 1st place in the Quick and Accurate Competition (LCT) at the Colour Of Chemistry Festival 2026, organized by HMJ Kimia FMIPA UHO. His achievement reflects exceptional talent, hard work, and dedication. We are very proud of his success, which brought honor and inspiration to our class.</p>
+          </div>
+    </div>
+          <!-- 18 -->
+          <div class="achievement-card">
+            <img src="ashar-gik25.png" alt="Prestasi Ashar" class="achievement-img">
+            <div class="achievement-info">
+              <span class="badge">Juara 2</span>
+              <h3>Cepat Tepat Kimia - Gebyar Inovasi Kimia XII (GIK XII) 2025</h3>
+              <p>Ashar proudly won 2nd place in the Chemistry Quick and Accurate Competition at Gebyar Inovasi Kimia XII (GIK XII) 2025, organized by HMJ Pendidikan Kimia FKIP Universitas Haluoleo. His achievement reflects exceptional talent, hard work, and dedication. We are very proud of his success, which brought honor and inspiration to our class.</p>
+          </div>
+    </div>
+          <!-- 18 -->
+          <div class="achievement-card">
+            <img src="alfath-o2aser-2025.png" alt="Prestasi Alfath" class="achievement-img">
+            <div class="achievement-info">
+              <span class="badge">Juara III</span>
+              <h3>Olimpiade Sains (Fisika) - O2ASER 2025</h3>
+              <p>Alfath proudly won 3rd place in the Physics Science Olympiad at O2ASER 2025, organized by IAIN Kendari. His achievement reflects exceptional talent, hard work, and dedication. We are very proud of his success, which brought honor and inspiration to our class.</p>
+          </div>
+    </div>
+        </div>
+
+        <!-- ========================================== -->
+        <!-- BAGIAN 2: PRESTASI DI DALAM SEKOLAH (5)    -->
+        <!-- ========================================== -->
+        <div style="text-align: center; margin-top: 80px;">
+            <h2 class="section-title">Internal Achievements (Inside School)</h2>
+        </div>
+
+        <div class="achievement-grid">
+            
+            <!-- LOOPING DALAM SEKOLAH 1 - 5 -->
+            <!-- 1 -->
+            <div class="achievement-card">
+                <img src="jemari26.png" alt="Prestasi Dalam 1" class="achievement-img">
+                <div class="achievement-info">
+                    <span class="badge">Juara 3</span>
+                    <h3>Jemari 2026</h3>
+                    <p>During Jemari 26, our class proudly participated in a cooking competition held in celebration of Eid al-Adha, where we creatively processed and cooked meat. Through great teamwork and enthusiasm, we successfully achieved 3rd place. This achievement reflects our creativity, collaboration, and strong class spirit. We are very proud of this success! </p>
+                </div>
+            </div>
+            <!-- 2 -->
+            <div class="achievement-card">
+                <img src="eva-nabila-vintavis.png" alt="Prestasi Dalam 2" class="achievement-img">
+                <div class="achievement-info">
+                    <span class="badge">Special Performance</span>
+                    <h3>Vintavis Graduation</h3>
+                    <p>During the Vintavis graduation event, Eva, Nabila, and Mia proudly took part in the performances. Nabila impressed the audience with her dance performance, while Eva confidently became the Arabic MC for the event. Meanwhile, Mia beautifully led the performance as the choir conductor.</p>
+                </div>
+            </div>
+            <!-- 3 -->
+            <div class="achievement-card">
+                <img src="xelv.png" alt="Prestasi Dalam 3" class="achievement-img">
+                <div class="achievement-info">
+                    <span class="badge">second juara umum</span>
+                    <h3>PORSENI(Pekan Olahraga dan Seni)</h3>
+                    <p>Penghargaan kelas terbersih dan terapi di lingkungan sekolah. Oleh: Seluruh Warga Kelas.</p>
+                </div>
+            </div>
+            <!-- 4 -->
+            <div class="achievement-card">
+                <img src="prestasi-dalam4.jpg" alt="Prestasi Dalam 4" class="achievement-img">
+                <div class="achievement-info">
+                    <span class="badge">Juara 3</span>
+                    <h3>Pentas Seni (Pensi)</h3>
+                    <p>Penampilan drama musikal terbaik dalam acara tahunan sekolah. Oleh: Tim Pensi.</p>
+                </div>
+            </div>
+            <!-- 5 -->
+            <div class="achievement-card">
+                <img src="prestasi-dalam5.jpg" alt="Prestasi Dalam 5" class="achievement-img">
+                <div class="achievement-info">
+                    <span class="badge">Juara Umum</span>
+                    <h3>Pekan Olahraga Sekolah</h3>
+                    <p>Juara umum dengan perolehan medali terbanyak di seluruh cabang olahraga. Oleh: Kontingen Xelvaron.</p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+        &copy; 2025-2028 XELVARON. Made with ❤️ by the class.
+    </div>
+
+</body>
+</html>
